@@ -13,6 +13,7 @@ class Lotery {
     {
         $this->generateWinCombination();
     }
+
     /**
      * @return array
      */

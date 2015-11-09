@@ -21,7 +21,6 @@ class LoteryTest extends \PHPUnit_Framework_TestCase
     {
         $lotery = new Lotery();
 
-        $lotery->generateWinCombination();
         $firstNumber = $lotery->getFirstWinNumber();
 
         $this->assertNotNull($firstNumber);
@@ -33,7 +32,6 @@ class LoteryTest extends \PHPUnit_Framework_TestCase
     {
         $lotery = new Lotery();
 
-        $lotery->generateWinCombination();
         $winCombintaion = $lotery->getWinCombination();
         $this->assertNotNull($winCombintaion);
         $this->assertArrayHasKey(5, $winCombintaion);
@@ -47,7 +45,6 @@ class LoteryTest extends \PHPUnit_Framework_TestCase
     {
         $lotery = new Lotery();
 
-        $lotery->generateWinCombination();
         $winCombintaion = $lotery->getFiveWinNumbers();
         $this->assertNotNull($winCombintaion);
         $this->assertArrayHasKey(4, $winCombintaion);
@@ -61,7 +58,6 @@ class LoteryTest extends \PHPUnit_Framework_TestCase
     {
         $lotery = new Lotery();
 
-        $lotery->generateWinCombination();
         $winCombintaion = $lotery->getFourWinNumbers();
         $this->assertNotNull($winCombintaion);
         $this->assertArrayHasKey(3, $winCombintaion);

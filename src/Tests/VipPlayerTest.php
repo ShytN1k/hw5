@@ -10,7 +10,6 @@ class VipPlayerTest extends \PHPUnit_Framework_TestCase
     {
         $player = new VipPlayer('player', 15);
 
-        $player->generateCombination();
         $combination = $player->getCombination();
         $this->assertNotNull($combination);
         $this->assertArrayHasKey(4, $combination);

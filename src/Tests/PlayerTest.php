@@ -10,7 +10,6 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     {
         $player = new Player('player', 2);
 
-        $player->generateCombination();
         $this->assertNotNull($player->getFirstNumber());
         $this->assertNotNull($player->getCombination());
     }
@@ -19,7 +18,6 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     {
         $player = new Player('player', 15);
 
-        $player->generateCombination();
         $combination = $player->getCombination();
         $this->assertNotNull($combination);
         $this->assertArrayHasKey(5, $combination);
@@ -36,7 +34,6 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     {
         $player = new Player('player', 23);
 
-        $player->generateCombination();
         $firstNumber = $player->getFirstNumber();
         $this->assertNotNull($firstNumber);
         $this->assertGreaterThan(0, $firstNumber);

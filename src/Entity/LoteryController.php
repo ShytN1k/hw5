@@ -24,6 +24,14 @@ class LoteryController
     }
 
     /**
+     * @return mixed
+     */
+    public function getPlayerType()
+    {
+        return $this->playerType;
+    }
+
+    /**
      * @return string
      */
     public function getPrizeForSixNumbers()
@@ -87,6 +95,9 @@ class LoteryController
         $this->prizeForOneNumber = $prizeForOneNumber;
     }
 
+    /**
+     * @return string
+     */
     public function checkWin()
     {
         if ($this->playerType === 'Common') {
@@ -100,6 +111,7 @@ class LoteryController
                 $message = '<br>CONGRATULATIONS!<br>'. $winMessage;
             }
             return $message;
+
         } elseif ($this->playerType === 'Vip') {
             $winMessage = $this->checkSixNumbersVip();
             $winMessage .= $this->checkFiveNumbersVip();
@@ -110,9 +122,14 @@ class LoteryController
                 $message = '<br>CONGRATULATIONS!<br>'. $winMessage;
             }
             return $message;
+        } else {
+            return '';
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkSixNumbersCommon()
     {
         $win = true;
@@ -136,6 +153,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkSixNumbersVip()
     {
         $win = true;
@@ -159,6 +179,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkOneNumber()
     {
         $loteryWinNumbers = $this->lotery->getWinCombination();
@@ -180,6 +203,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkFiveNumbersCommon()
     {
         $win = true;
@@ -203,6 +229,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkFiveNumbersVip()
     {
         $win = true;
@@ -216,6 +245,9 @@ class LoteryController
                 $win = true;
             }
         }
+    /**
+     * @return string
+     */
 
         if ($win) {
             $winMessage = 'Player '. $this->player->getPlayerName(). ' has won a prize: ';
@@ -226,6 +258,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkFourNumbersCommon()
     {
         $win = true;
@@ -249,6 +284,9 @@ class LoteryController
         }
     }
 
+    /**
+     * @return string
+     */
     public function checkFourNumbersVip()
     {
         $win = true;
