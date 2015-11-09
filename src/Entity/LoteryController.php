@@ -276,7 +276,7 @@ class LoteryController
         }
 
         if ($win) {
-            $winMessage = 'Player '. $this->player->getPlayerName(). ' has won a prize: ';
+            $winMessage = 'Yea! Player '. $this->player->getPlayerName(). ' has won a prize: ';
             $winMessage .= $this->prizeForFourNumbers. '<br>';
             return $winMessage;
         } else {
