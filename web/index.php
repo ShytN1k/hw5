@@ -5,9 +5,9 @@ require __DIR__ . '/../vendor/autoload.php';
 use Entity\Lotery;
 use Entity\Player;
 use Entity\VipPlayer;
+use Entity\LoteryController;
 
 $lotery = new Lotery();
-$lotery->generateWinCombination();
 $win = $lotery->getWinCombination();
 $winFive = $lotery->getFiveWinNumbers();
 $winFour = $lotery->getFourWinNumbers();
@@ -29,21 +29,31 @@ for ($i = 0; $i < 10; $i++) {
     $coef = rand(1, 2);
     if ($coef == 1) {
         $player = new Player('player'.$i, $i);
-        $player->generateCombination();
         $combination = $player->getCombination();
 
         echo '<br><br>'. $player->getPlayerType(). ' player #'. $i. ' numbers: ';
         foreach ($combination as $number) {
             echo $number. ' ';
         }
+
+        $controller = new LoteryController($lotery, $player);
+        $win = $controller->checkWin();
+        if ($win != '') {
+            echo $win;
+        }
     } else {
         $player = new VipPlayer('player'.$i, $i);
-        $player->generateCombination();
         $combination = $player->getCombination();
 
         echo '<br><br>'. $player->getPlayerType(). ' player #'. $i. ' numbers: ';
         foreach ($combination as $number) {
             echo $number. ' ';
+        }
+
+        $controller = new LoteryController($lotery, $player);
+        $win = $controller->checkWin();
+        if ($win != '') {
+            echo $win;
         }
     }
 

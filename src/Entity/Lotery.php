@@ -9,6 +9,10 @@ class Lotery {
     private $fiveWinNumbers = array();
     private $fourWinNumbers = array();
 
+    public function __construct()
+    {
+        $this->generateWinCombination();
+    }
     /**
      * @return array
      */

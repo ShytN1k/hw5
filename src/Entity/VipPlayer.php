@@ -11,6 +11,7 @@ class VipPlayer extends AbstractPlayer
         $this->playerName = $name;
         $this->playerId = $id;
         $this->playerType = 'Vip';
+        $this->generateCombination();
     }
     public function generateCombination()
     {

@@ -12,6 +12,7 @@ class Player extends AbstractPlayer
         $this->playerName = $name;
         $this->playerId = $id;
         $this->playerType = 'Common';
+        $this->generateCombination();
     }
     public function generateCombination()
     {
